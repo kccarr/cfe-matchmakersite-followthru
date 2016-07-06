@@ -32,7 +32,7 @@ def single(request, id):
 
 		form = UserResponseForm(request.POST or None)
 		if form.is_valid():
-			print form.cleaned_data
+			print(form.cleaned_data)
 			#print request.POST
 
 			question_id = form.cleaned_data.get('question_id') #form.cleaned_data['question_id']
@@ -98,7 +98,7 @@ def home(request):
 			answer_id = form.cleaned_data.get('answer_id')
 			question_instance = Question.objects.get(id=question_id)
 			answer_instance = Answer.objects.get(id=answer_id)
-			print answer_instance.text, question_instance.text
+			print(answer_instance.text, question_instance.text)
 
 		queryset = Question.objects.all().order_by('-timestamp')
 		instance = queryset[1]
